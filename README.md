@@ -5,7 +5,7 @@ includes a Microsoft Visual Studio Code IDE.
 
 Each branch has a Dockerfile.
 The Dockerfile starts with a base OS image drawn from
-[ocaml/ocaml](https://hub.docker.com/ocaml/ocaml).
+[ocaml/ocaml](https://hub.docker.com/r/ocaml/ocaml).
 
 Naming conventions from [ocaml/opam-dev-dockerfiles](https://github.com/ocaml/opam-dev-dockerfiles)
 are followed. Branches are named for a combination of the OS and the
