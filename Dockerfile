@@ -60,8 +60,10 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     /var/lib/apt/lists/* \
     /tmp/* \
     /var/tmp/* && \
+  gem install rake && \
+  gem install rubocop && \
   wget https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz && \
-  tar xvf go1.9.2.linux-amd64.tar.gz && \
+  tar xf go1.9.2.linux-amd64.tar.gz && \
   mv go /usr/local && \
   rm go1.9.2.linux-amd64.tar.gz && \
 # vim with language interpretation
@@ -139,7 +141,6 @@ RUN mkdir .ssh && \
 # install neovim Python support
   pip2 install --user neovim && \
   pip3 install --user neovim && \
-  gem install rubocop && \ 
   mkdir -p .vim/pack/plugins/start && \
   sh -c 'cd .vim/pack/plugins/start && \
 # merlin prerequisite plugins
