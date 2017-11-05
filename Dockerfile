@@ -6,7 +6,10 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
   echo $TZ > /etc/timezone && \
   sh -c 'curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg' && \
   mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg && \
-  sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list' && \
+  echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list && \
+  echo "deb [trusted=yes] http://debian.stanford.edu/debian-stanford stable main" > /etc/apt/sources.list.d/stanford.list && \
+  echo "Package: *\nPin: release o=Stanford\nPin-Priority:200\n" > /etc/apt/preferences.d/stanford.pref && \
+  echo "Package: libremctl1\nPin: release o=Stanford\nPin-Priority:600" >> /etc/apt/preferences.d/stanford.pref && \
   DEBIAN_FRONTEND=noninteractive apt-get -y update && \
   DEBIAN_FRONTEND=noninteractive apt-get -y install \
 # to trace system calls
@@ -22,6 +25,8 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && \
     krb5-k5tls \
     krb5-pkinit \
     kstart \
+    remctl-client \
+    wallet-client \
 # fsharp and its IDE -- visual studio code
     fsharp \
     libgtk2.0-dev \
