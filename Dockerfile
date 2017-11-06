@@ -122,8 +122,20 @@ RUN mkdir .ssh && \
     depext \
     travis-opam \
     merlin \
+    astring \
+    fpath \
+    cmdliner \
+    jbuilder \
+    topkg \
+    topkg-care \
+    topkg-jbuilder \
     xmlm \
     xtmpl \
+    utop \
+    sexplib \
+    ppx_sexp_conv \
+    ounit \
+    bisect_ppx \
     async_ssl' && \
   sudo -u tony sh -c 'opam source -y \
     async_ssl' && \
@@ -133,6 +145,7 @@ RUN mkdir .ssh && \
   echo 'set -o vim' >> .bashrc && \
   echo 'export VISUAL=vim' >> .bashrc && \
   echo 'export EDITOR=vim' >> .bashrc && \
+  echo 'export LANG=C' >> .bashrc && \
   echo '' >> .bashrc && \
   echo 'vi() {' >> .bashrc && \
   echo '  vim "$@"' >> .bashrc && \
