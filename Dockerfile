@@ -142,7 +142,7 @@ RUN mkdir .ssh && \
 # Pyenv is for easy python virtualenv definition and access
   sh -c 'curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash' && \
   echo '' >> .bashrc && \
-  echo 'set -o vim' >> .bashrc && \
+  echo 'set -o vi' >> .bashrc && \
   echo 'export VISUAL=vim' >> .bashrc && \
   echo 'export EDITOR=vim' >> .bashrc && \
   echo 'export LANG=C' >> .bashrc && \
